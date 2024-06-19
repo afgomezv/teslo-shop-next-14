@@ -1,5 +1,4 @@
 export * from "./cart/AddressCheckout";
-export * from "./cart/AddressCheckout";
 export * from "./cart/Cart";
 export * from "./cart/CartCheckout";
 export * from "./cart/FinalCheckout";
@@ -11,8 +10,9 @@ export * from "./product/SizeSelector";
 
 export * from "./products/ProductGrid";
 
-export * from "./ui/Footer";
-export * from "./ui/PageNotFound";
-export * from "./ui/Sidebar";
-export * from "./ui/Title";
-export * from "./ui/TopMenu";
+export * from "./ui/footer/Footer";
+export * from "./ui/not-found/PageNotFound";
+export * from "./ui/pagination/Pagination";
+export * from "./ui/sidebar/Sidebar";
+export * from "./ui/title/Title";
+export * from "./ui/top-menu/TopMenu";

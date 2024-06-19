@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { AddressCheckOut, CartCheckout, Title } from "@/components";
+import { AddressCheckout, CartCheckout, Title } from "@/components";
 import { initialData } from "@/seed/seed";
 
 const productsInCart = [
@@ -28,7 +28,7 @@ export default function CheckOutPage() {
           </div>
 
           {/*Check Out */}
-          <AddressCheckOut />
+          <AddressCheckout />
         </div>
       </div>
     </div>
