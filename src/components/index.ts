@@ -7,6 +7,7 @@ export * from "./product/ProductMobileSlideShow";
 export * from "./product/ProductSlideShow";
 export * from "./product/QuantitySelector";
 export * from "./product/SizeSelector";
+export * from "./product/StockLabel";
 
 export * from "./products/ProductGrid";
 

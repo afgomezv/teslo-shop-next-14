@@ -1,12 +1,19 @@
+export const revalidate = 604080; // 7dias
+
+import { Metadata, ResolvingMetadata } from "next";
+import { notFound } from "next/navigation";
+import { titleFont } from "@/config/fonts";
+//import { initialData } from "@/seed/seed";
+
+import { getProductBySlug } from "@/actions";
 import {
   ProductMobileSlideshow,
   ProductSlideShow,
   QuantitySelector,
   SizeSelector,
+  StockLabel,
 } from "@/components";
-import { titleFont } from "@/config/fonts";
-import { initialData } from "@/seed/seed";
-import { notFound } from "next/navigation";
+import prisma from "@/lib/prisma";
 
 interface Props {
   params: {
@@ -14,9 +21,31 @@ interface Props {
   };
 }
 
-export default function ProductPage({ params }: Props) {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params.slug;
+
+  const product = await getProductBySlug(slug);
+
+  return {
+    title: product?.title ?? "Producto not found",
+    description: product?.description ?? "",
+    openGraph: {
+      //images: [], https://misitioweb.com/products/prod-1/image.png
+      images: [`/products/${product?.images[1]}`],
+    },
+  };
+}
+
+export default async function ProductPage({ params }: Props) {
+  //const product = initialData.products.find((product) => product.slug === slug);
   const { slug } = params;
-  const product = initialData.products.find((product) => product.slug === slug);
+
+  const product = await getProductBySlug(slug);
+
+  //console.log(product);
 
   if (!product) {
     notFound();
@@ -43,6 +72,10 @@ export default function ProductPage({ params }: Props) {
 
       {/*Detallles */}
       <div className="col-span-1 px-5">
+        {/*Stock */}
+        <StockLabel slug={product.slug} />
+
+        {/*Nombre del product */}
         <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>
           {product.title}
         </h1>
