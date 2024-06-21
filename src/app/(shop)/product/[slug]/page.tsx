@@ -9,11 +9,9 @@ import { getProductBySlug } from "@/actions";
 import {
   ProductMobileSlideshow,
   ProductSlideShow,
-  QuantitySelector,
-  SizeSelector,
   StockLabel,
 } from "@/components";
-import prisma from "@/lib/prisma";
+import { AddToCart } from "./ui/AddToCart";
 
 interface Props {
   params: {
@@ -81,17 +79,8 @@ export default async function ProductPage({ params }: Props) {
         </h1>
         <p className="text-lg mb-5">${product.price}</p>
 
-        {/*Selector de tallas*/}
-        <SizeSelector
-          selectedSize={product.sizes[0]}
-          availableSizes={product.sizes}
-        />
+        <AddToCart product={product} />
 
-        {/*Selector de cantidad */}
-        <QuantitySelector quantity={2} />
-
-        {/*buton*/}
-        <button className="btn-primary my-5">Agregar al carrito</button>
         <h3 className="font-bold text-sm">Descripción</h3>
         <p className="font-light text-justify">{product.description}</p>
       </div>

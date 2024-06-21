@@ -1,9 +1,11 @@
 import Link from "next/link";
-
-import { Cart, Title } from "@/components";
-import { initialData } from "@/seed/seed";
-import { CardCheckout } from "@/components/cart/CardCheckout";
 import { redirect } from "next/navigation";
+
+import { Title } from "@/components";
+import { initialData } from "@/seed/seed";
+
+import { ProductsInCart } from "./ui/ProductsInCart";
+import { OrderSummary } from "./ui/OrderSummary";
 
 const productsInCart = [
   initialData.products[0],
@@ -28,11 +30,22 @@ export default function CartPage() {
             </Link>
 
             {/*Items */}
-            <Cart productsInCart={productsInCart} />
+            <ProductsInCart />
           </div>
 
           {/*Check Out */}
-          <CardCheckout />
+          <div className="bg-white rounded-xl shadow-xl p-7 h-fit">
+            <h2 className="text-2xl mb-2">Resumen de orden</h2>
+            <OrderSummary />
+            <div className="mt-5 mb-2 w-full">
+              <Link
+                className="flex btn-primary justify-center"
+                href="/checkout/address"
+              >
+                Checkout
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

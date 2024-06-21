@@ -1,5 +1,4 @@
 export * from "./cart/AddressCheckout";
-export * from "./cart/Cart";
 export * from "./cart/CartCheckout";
 export * from "./cart/FinalCheckout";
 
