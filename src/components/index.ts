@@ -10,6 +10,8 @@ export * from "./product/StockLabel";
 
 export * from "./products/ProductGrid";
 
+export * from "./provider/Provider";
+
 export * from "./ui/footer/Footer";
 export * from "./ui/not-found/PageNotFound";
 export * from "./ui/pagination/Pagination";
