@@ -1,5 +1,9 @@
 export * from "./cart/FinalCheckout";
 
+export * from "./orders/OrderStatus";
+
+export * from "./paypal/PaypalButton";
+
 export * from "./product/ProductMobileSlideShow";
 export * from "./product/ProductSlideShow";
 export * from "./product/QuantitySelector";
@@ -8,7 +12,7 @@ export * from "./product/StockLabel";
 
 export * from "./products/ProductGrid";
 
-export * from "./provider/Provider";
+export * from "./providers/Providers";
 
 export * from "./ui/footer/Footer";
 export * from "./ui/not-found/PageNotFound";
