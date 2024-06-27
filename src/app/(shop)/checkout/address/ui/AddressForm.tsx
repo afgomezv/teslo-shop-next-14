@@ -35,7 +35,7 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
     reset,
   } = useForm<FormInputs>({
     defaultValues: {
-      // TODO: leer de la base de datos
+      // leer de la base de datos
       ...(userStoredAddress as any),
       rememberAddress: false,
     },
@@ -56,15 +56,14 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
 
   const onSubmit = async (data: FormInputs) => {
     //console.log({ data });
-    setAddress(data);
-
     const { rememberAddress, ...rest } = data;
+    setAddress(rest);
 
     if (rememberAddress) {
-      //todo: Server Action
+      //Server Action
       await setUserAddress(rest, session!.user.id);
     } else {
-      //todo: Server Action
+      //Server Action
       await deleteUserAddress(session!.user.id);
     }
 

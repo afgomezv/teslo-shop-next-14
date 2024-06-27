@@ -1,13 +1,8 @@
 import Link from "next/link";
 
-import { AddressCheckout, CartCheckout, Title } from "@/components";
-import { initialData } from "@/seed/seed";
-
-const productsInCart = [
-  initialData.products[0],
-  initialData.products[1],
-  initialData.products[2],
-];
+import { Title } from "@/components";
+import { ProductsInCart } from "./ui/ProductsInCart";
+import { PlaceOrder } from "./ui/PlaceOrder";
 
 export default function CheckOutPage() {
   return (
@@ -24,11 +19,11 @@ export default function CheckOutPage() {
             </Link>
 
             {/*Items */}
-            <CartCheckout productsInCart={productsInCart} />
+            <ProductsInCart />
           </div>
 
           {/*Check Out */}
-          <AddressCheckout />
+          <PlaceOrder />
         </div>
       </div>
     </div>

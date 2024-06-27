@@ -19,7 +19,7 @@ import {
 
 export const Sidebar = () => {
   const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
-  const closeMenuOpen = useUIStore((state) => state.closeSideMenu);
+  const closeMenu = useUIStore((state) => state.closeSideMenu);
 
   const { data: session } = useSession();
 
@@ -41,14 +41,14 @@ export const Sidebar = () => {
       {/*Blur*/}
       {isSideMenuOpen && (
         <div
-          onClick={closeMenuOpen}
+          onClick={closeMenu}
           className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm"
         ></div>
       )}
 
       {/*Sidemenu */}
       <nav
-        //todo; efecto de slide
+        //efecto de slide
         className={clsx(
           "fixed p-5 right-0 top-0 w-[350px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300",
           {
@@ -59,7 +59,7 @@ export const Sidebar = () => {
         <IoCloseOutline
           size={30}
           className="absolute top-5 right-5 cursor-pointer"
-          onClick={() => closeMenuOpen()}
+          onClick={() => closeMenu()}
         />
 
         {/*Input*/}
@@ -77,18 +77,19 @@ export const Sidebar = () => {
           <>
             <Link
               href="/profile"
-              onClick={() => closeMenuOpen()}
+              onClick={() => closeMenu()}
               className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             >
               <IoPersonOutline size={30} />
               <span className="ml-3 text-xl">Perfil</span>
             </Link>
             <Link
-              href="/"
+              href="/orders"
+              onClick={() => closeMenu()}
               className="flex items-center mt-2 p-2 hover:bg-gray-100 rounded transition-all"
             >
               <IoTicketOutline size={30} />
-              <span className="ml-3 text-xl">Orden</span>
+              <span className="ml-3 text-xl">Ordenes</span>
             </Link>
           </>
         )}
@@ -97,7 +98,7 @@ export const Sidebar = () => {
           <button
             onClick={() => {
               signOut();
-              closeMenuOpen();
+              closeMenu();
             }}
             className="flex w-full items-center mt-2  p-2 hover:bg-gray-100 rounded transition-all"
           >
@@ -109,7 +110,7 @@ export const Sidebar = () => {
         {!isAuthenticated && (
           <Link
             href="/auth/login"
-            onClick={() => closeMenuOpen()}
+            onClick={() => closeMenu()}
             className="flex items-center mt-2  p-2 hover:bg-gray-100 rounded transition-all"
           >
             <IoLogInOutline size={30} />

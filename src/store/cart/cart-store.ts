@@ -16,6 +16,7 @@ interface State {
   addProductCart: (product: CartProduct) => void;
   updateProductCartQuantity: (product: CartProduct, quantity: number) => void;
   removeProduct: (product: CartProduct) => void;
+  cleanCart: () => void;
 }
 
 export const useCartStore = create<State>()(
@@ -87,6 +88,10 @@ export const useCartStore = create<State>()(
           (item) => item.id !== product.id || item.size !== product.size
         );
         set({ cart: updatedCartProducts });
+      },
+
+      cleanCart: () => {
+        set({ cart: [] });
       },
     }),
 

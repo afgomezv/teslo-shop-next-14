@@ -1,5 +1,3 @@
-export * from "./cart/AddressCheckout";
-export * from "./cart/CartCheckout";
 export * from "./cart/FinalCheckout";
 
 export * from "./product/ProductMobileSlideShow";
