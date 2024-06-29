@@ -1,11 +1,11 @@
 import { auth } from "@/auth.config";
 import { redirect } from "next/navigation";
 
-export default async function ShopLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode;
-}) {
+}
+
+export default async function ShopLayout({ children }: Props) {
   const session = await auth();
 
   if (session?.user) {

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { inter } from "@/config/fonts";
-
-import "./globals.css";
 import { Providers } from "@/components";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -12,11 +11,11 @@ export const metadata: Metadata = {
   description: "Tienda de productos teslo shop",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface Props {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className={inter.className}>
