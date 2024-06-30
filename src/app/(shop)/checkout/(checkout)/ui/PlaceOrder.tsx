@@ -35,6 +35,7 @@ export const PlaceOrder = () => {
     }));
 
     //Server Action
+
     const res = await placeOrder(productsToOrder, address);
     if (!res.ok) {
       setIsPlacingOrder(false);

@@ -9,5 +9,6 @@
 5. Corres las migraciones de Prisma ``npx prisma migrate dev`
 6. Ejecutar sedd `npm run seed`
 7. Correr poryecto `npm dev`
+8. Limpiar el localStorage del navegador
 
 ## Entorno de producción
